@@ -3,10 +3,10 @@
 }
 
 body.theme-light {
-  --bg-start: #0d47a1;
-  --bg-end: #1976d2;
+  --bg-start: #ffffff;
+  --bg-end: #ffffff;
   --text-main: #0c2340;
-  --title: #ffffff;
+  --title: #ffd600;
   --subtitle: #e3f2fd;
   --card-bg: #ffffff;
   --card-shadow: rgba(0, 0, 0, 0.18);
