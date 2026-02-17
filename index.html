@@ -1,14 +1,37 @@
 <!doctype html>
-<html lang="en">
+<html lang="ko">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Hello World</title>
-  <link href='/style.css' rel='stylesheet'>
+  <title>랜덤 추첨기</title>
+  <link href="/style.css" rel="stylesheet" />
 </head>
 <body>
-  <h1>Hello, world!</h1>
-  <button onclick="console.log('hello');">Press me</button>
+  <main class="container">
+    <h1>랜덤 추첨기</h1>
+    <p class="subtitle">신청자 번호와 닉네임을 입력하고 3명을 추첨하세요.</p>
+
+    <section class="card">
+      <form id="entryForm" class="entry-form">
+        <input id="numberInput" type="text" placeholder="신청자 번호" required />
+        <input id="nicknameInput" type="text" placeholder="닉네임" required />
+        <button type="submit">신청자 추가</button>
+      </form>
+      <p id="message" class="message"></p>
+    </section>
+
+    <section class="card">
+      <h2>신청자 목록</h2>
+      <ul id="entryList" class="entry-list"></ul>
+      <button id="drawButton" class="draw-button" type="button">3명 추첨</button>
+    </section>
+
+    <section class="card">
+      <h2>추첨 결과</h2>
+      <ol id="resultList" class="result-list"></ol>
+    </section>
+  </main>
+
   <script defer type="text/javascript" src="/main.js"></script>
 </body>
 </html>
