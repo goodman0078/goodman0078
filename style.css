@@ -121,6 +121,14 @@ button:hover {
   color: var(--message);
 }
 
+.creator {
+  margin: 28px 0 0;
+  text-align: center;
+  font-size: 48px;
+  font-weight: 800;
+  color: var(--text-main);
+}
+
 @media (max-width: 640px) {
   .header-row {
     flex-direction: column;
@@ -129,5 +137,9 @@ button:hover {
 
   .entry-form {
     grid-template-columns: 1fr;
+  }
+
+  .creator {
+    font-size: 34px;
   }
 }
