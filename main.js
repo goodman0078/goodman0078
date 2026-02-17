@@ -5,8 +5,22 @@ const entryList = document.getElementById("entryList");
 const resultList = document.getElementById("resultList");
 const drawButton = document.getElementById("drawButton");
 const message = document.getElementById("message");
+const themeToggle = document.getElementById("themeToggle");
 
 const applicants = [];
+const THEME_KEY = "lottery-theme";
+
+function applyTheme(theme) {
+  const safeTheme = theme === "dark" ? "theme-dark" : "theme-light";
+  document.body.classList.remove("theme-light", "theme-dark");
+  document.body.classList.add(safeTheme);
+  themeToggle.textContent = safeTheme === "theme-dark" ? "화이트모드" : "다크모드";
+}
+
+function initTheme() {
+  const savedTheme = localStorage.getItem(THEME_KEY);
+  applyTheme(savedTheme === "dark" ? "dark" : "light");
+}
 
 function renderApplicants() {
   entryList.innerHTML = "";
@@ -75,3 +89,12 @@ drawButton.addEventListener("click", () => {
 
   showMessage("추첨이 완료되었습니다.");
 });
+
+themeToggle.addEventListener("click", () => {
+  const isDark = document.body.classList.contains("theme-dark");
+  const nextTheme = isDark ? "light" : "dark";
+  applyTheme(nextTheme);
+  localStorage.setItem(THEME_KEY, nextTheme);
+});
+
+initTheme();

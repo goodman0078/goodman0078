@@ -2,12 +2,40 @@
   box-sizing: border-box;
 }
 
+body.theme-light {
+  --bg-start: #0d47a1;
+  --bg-end: #1976d2;
+  --text-main: #0c2340;
+  --title: #ffffff;
+  --subtitle: #e3f2fd;
+  --card-bg: #ffffff;
+  --card-shadow: rgba(0, 0, 0, 0.18);
+  --border: #b3c8e6;
+  --button-bg: #1565c0;
+  --button-hover: #0d47a1;
+  --message: #0d47a1;
+}
+
+body.theme-dark {
+  --bg-start: #0b1733;
+  --bg-end: #11264f;
+  --text-main: #dbe7ff;
+  --title: #f2f7ff;
+  --subtitle: #b9d0ff;
+  --card-bg: #1a2a4f;
+  --card-shadow: rgba(0, 0, 0, 0.45);
+  --border: #3b5a9c;
+  --button-bg: #2a6be0;
+  --button-hover: #1f56b8;
+  --message: #c9dbff;
+}
+
 body {
   margin: 0;
   min-height: 100vh;
   font-family: "Noto Sans KR", sans-serif;
-  background: linear-gradient(160deg, #0d47a1, #1976d2);
-  color: #0c2340;
+  background: linear-gradient(160deg, var(--bg-start), var(--bg-end));
+  color: var(--text-main);
 }
 
 .container {
@@ -15,22 +43,29 @@ body {
   margin: 40px auto;
 }
 
+.header-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
 h1 {
   margin: 0;
-  color: #ffffff;
+  color: var(--title);
 }
 
 .subtitle {
   margin: 10px 0 20px;
-  color: #e3f2fd;
+  color: var(--subtitle);
 }
 
 .card {
-  background: #ffffff;
+  background: var(--card-bg);
   border-radius: 12px;
   padding: 18px;
   margin-bottom: 14px;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.18);
+  box-shadow: 0 8px 20px var(--card-shadow);
 }
 
 .entry-form {
@@ -43,25 +78,29 @@ input,
 button {
   height: 42px;
   border-radius: 8px;
-  border: 1px solid #b3c8e6;
+  border: 1px solid var(--border);
   font-size: 15px;
   padding: 0 12px;
 }
 
 button {
-  background: #1565c0;
+  background: var(--button-bg);
   color: #ffffff;
   border: none;
   cursor: pointer;
 }
 
 button:hover {
-  background: #0d47a1;
+  background: var(--button-hover);
 }
 
 .draw-button {
   width: 100%;
   margin-top: 12px;
+}
+
+.theme-toggle {
+  min-width: 98px;
 }
 
 .entry-list,
@@ -79,10 +118,15 @@ button:hover {
   min-height: 20px;
   margin: 10px 0 0;
   font-size: 14px;
-  color: #0d47a1;
+  color: var(--message);
 }
 
 @media (max-width: 640px) {
+  .header-row {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
   .entry-form {
     grid-template-columns: 1fr;
   }
